@@ -33,8 +33,12 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// warning: unknown enum constant When.MAYBE
+	compileOnly 'com.google.code.findbugs:jsr305:3.0.2'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+	jvmArgs "-Xshare:off"
 }
